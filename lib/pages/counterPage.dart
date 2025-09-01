@@ -1,41 +1,80 @@
 import 'package:flutter/material.dart';
 
-class CounterPage extends StatefulWidget {
-  const CounterPage({super.key});
+class Counterpage extends StatefulWidget {
+  const Counterpage({super.key});
 
   @override
-  State<CounterPage> createState() => _CounterPageState();
+  State<Counterpage> createState() => _CounterpageState();
 }
 
-class _CounterPageState extends State<CounterPage> {
+class _CounterpageState extends State<Counterpage> {
+
   int _counter = 0;
 
-  void _incrementer() {
+  void _incrementer () {
     setState(() {
       _counter++;
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: Text(
+          "Increment App",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Vous avez appuyé sur le bouton ce nombre de fois:',
-              style: Theme.of(context).textTheme.headlineSmall,
+              "You've pushed the button",
+              style: TextStyle(
+                fontSize: 25,
+                fontFamily: "Calibri",
+              ),
             ),
+
             Text(
               "$_counter",
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 50,
+                fontFamily: "Calibri",
+              ),
+            ),
+
+            Text(
+              "Times",
+              style: TextStyle(
+                fontSize: 25,
+                fontFamily: "Calibri",
+              ),
             ),
 
             ElevatedButton(
               onPressed: _incrementer,
-              child: Text("Increment"),
+
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+                shape: CircleBorder(),
+                padding: EdgeInsets.all(25),
+              ),
+
+              child: Text(
+                "+",
+                style: TextStyle(
+                  fontSize: 25,
+                  fontFamily: "Calibri",
+                ),
+              )
             ),
           ],
         ),
